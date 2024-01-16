@@ -1,0 +1,15 @@
+C:\Ynov\B2\C#\MiniProjet-CSharp\Jeux\Jeux\bin\Debug\net8.0\Jeux.exe
+C:\Ynov\B2\C#\MiniProjet-CSharp\Jeux\Jeux\bin\Debug\net8.0\Jeux.deps.json
+C:\Ynov\B2\C#\MiniProjet-CSharp\Jeux\Jeux\bin\Debug\net8.0\Jeux.runtimeconfig.json
+C:\Ynov\B2\C#\MiniProjet-CSharp\Jeux\Jeux\bin\Debug\net8.0\Jeux.dll
+C:\Ynov\B2\C#\MiniProjet-CSharp\Jeux\Jeux\bin\Debug\net8.0\Jeux.pdb
+C:\Ynov\B2\C#\MiniProjet-CSharp\Jeux\Jeux\obj\Debug\net8.0\Jeux.GeneratedMSBuildEditorConfig.editorconfig
+C:\Ynov\B2\C#\MiniProjet-CSharp\Jeux\Jeux\obj\Debug\net8.0\Jeux.AssemblyInfoInputs.cache
+C:\Ynov\B2\C#\MiniProjet-CSharp\Jeux\Jeux\obj\Debug\net8.0\Jeux.AssemblyInfo.cs
+C:\Ynov\B2\C#\MiniProjet-CSharp\Jeux\Jeux\obj\Debug\net8.0\Jeux.csproj.CoreCompileInputs.cache
+C:\Ynov\B2\C#\MiniProjet-CSharp\Jeux\Jeux\obj\Debug\net8.0\Jeux.sourcelink.json
+C:\Ynov\B2\C#\MiniProjet-CSharp\Jeux\Jeux\obj\Debug\net8.0\Jeux.dll
+C:\Ynov\B2\C#\MiniProjet-CSharp\Jeux\Jeux\obj\Debug\net8.0\refint\Jeux.dll
+C:\Ynov\B2\C#\MiniProjet-CSharp\Jeux\Jeux\obj\Debug\net8.0\Jeux.pdb
+C:\Ynov\B2\C#\MiniProjet-CSharp\Jeux\Jeux\obj\Debug\net8.0\Jeux.genruntimeconfig.cache
+C:\Ynov\B2\C#\MiniProjet-CSharp\Jeux\Jeux\obj\Debug\net8.0\ref\Jeux.dll
