@@ -7,7 +7,7 @@ public class Program
 {
     static void Main()
     {
-        Player player = new Player("Joueur", 20, 60, "aucun")
+        Player player = new Player("Joueur", 200, 20, "aucun")
         ;
         player.Spells.Add(new Spell("Fireball", 10, 15, "brulure"));
         player.Spells.Add(new Spell("Freeze", 5, 10, "gelure"));
@@ -65,8 +65,12 @@ public class Program
                     {
                         Spell fireballSpell = player.Spells.First(spell => spell.Name == "Fireball");
                         player.CastSpell(fireballSpell, monster);
-                        Console.WriteLine();
-                        Console.WriteLine($"Vous avez lancé {fireballSpell.Name} et infligé {fireballSpell.Damage} points de dégâts au {monster.Name}!");
+
+                        if (player.Mana >= fireballSpell.ManaCost)
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine($"Vous avez lancé {fireballSpell.Name} et infligé {fireballSpell.Damage} points de dégâts au {monster.Name}!");
+                        }
                     }
                     if (monster.IsAliveMonster())
                     {
@@ -78,8 +82,11 @@ public class Program
                     {
                         Spell FreezeSpell = player.Spells.First(spell => spell.Name == "Freeze");
                         player.CastSpell(FreezeSpell, monster);
-                        Console.WriteLine();
-                        Console.WriteLine($"Vous avez lancé {FreezeSpell.Name} et infligé {FreezeSpell.Damage} points de dégâts au {monster.Name}!");
+                        if (player.Mana >= FreezeSpell.ManaCost)
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine($"Vous avez lancé {FreezeSpell.Name} et infligé {FreezeSpell.Damage} points de dégâts au {monster.Name}!");
+                        }
                     }
                     if (monster.IsAliveMonster())
                     {
@@ -91,8 +98,11 @@ public class Program
                     {
                         Spell PoisonSpell = player.Spells.First(spell => spell.Name == "Poison");
                         player.CastSpell(PoisonSpell, monster);
-                        Console.WriteLine();
-                        Console.WriteLine($"Vous avez lancé {PoisonSpell.Name} et infligé {PoisonSpell.Damage} points de dégâts au {monster.Name}!");
+                        if (player.Mana >= PoisonSpell.ManaCost)
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine($"Vous avez lancé {PoisonSpell.Name} et infligé {PoisonSpell.Damage} points de dégâts au {monster.Name}!");
+                        }
                     }
                     if (monster.IsAliveMonster())
                     {
