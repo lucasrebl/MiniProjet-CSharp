@@ -7,8 +7,7 @@ public class Program
 {
     static void Main()
     {
-        Player player = new Player("Joueur", 200, 20, "aucun")
-        ;
+        Player player = new Player("Joueur", 20, 20, "aucun");
         player.Spells.Add(new Spell("Fireball", 10, 15, "brulure"));
         player.Spells.Add(new Spell("Freeze", 5, 10, "gelure"));
         player.Spells.Add(new Spell("Poison", 15, 10, "empoisonné"));
