@@ -1,5 +1,3 @@
-using Players;
-
 namespace Heals
 {
     class Heal

@@ -1,6 +1,7 @@
 using Monsters;
 using Spells;
 using Heals;
+using Potions;
 
 namespace Players
 {
@@ -12,15 +13,20 @@ namespace Players
 
         public string? MonsterStatus { get; private set; }
 
+        public int NbPotion { get; private set; }
+
         public List<Spell> Spells { get; } = new List<Spell>();
         public List<Heal> Heals { get; } = new List<Heal>();
 
-        public Player(string name, int health, int mana, string status)
+        public List<Potion> Potions { get; } = new List<Potion>();
+
+        public Player(string name, int health, int mana, string status, int nbPotion)
         {
             Name = name;
             Health = health;
             Mana = mana;
             MonsterStatus = status;
+            NbPotion = nbPotion;
         }
 
         public void CastSpell(Spell spell, Monster target)
@@ -42,6 +48,21 @@ namespace Players
             Health += heal.PvHeal;
         }
 
+        public void ComsumePotion(Potion potion)
+        {
+            Mana += potion.ManaRestaure;
+        }
+
+        public void DecrementNbPotion(Potion potion)
+        {
+            NbPotion -= 1;
+        }
+
+        // public void IncrementNbPotion()
+        // {
+        //     NbPotion += 1;
+        // }
+
         public void ApplyDamage(int damage)
         {
             Health -= damage;
@@ -54,7 +75,7 @@ namespace Players
 
         public string GetStatusPlayer()
         {
-            return $"{Name}: PV = {Health}, Mana = {Mana}";
+            return $"{Name}: PV = {Health}, Mana = {Mana}, Nombre de potion = {NbPotion}";
         }
 
         public void Bonus()

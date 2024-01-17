@@ -8,7 +8,7 @@ namespace Monsters
         public string? Name { get; }
         public int Health { get; private set; }
         public int Mana { get; private set; }
-        public string? PlayerStatus {get; private set;}
+        public string? PlayerStatus { get; private set; }
 
         public Monster(string name, int health, int mana, string status)
         {
@@ -54,5 +54,16 @@ namespace Monsters
         {
             return $"{Name}: PV = {Health}, Mana = {Mana}";
         }
+
+        // public void MonsterDropPotion(Player player, Random randomDropPotion)
+        // {
+        //     int dropChance = randomDropPotion.Next(1, 4);
+
+        //     if (dropChance == 1)
+        //     {
+        //         player.IncrementNbPotion();
+        //         player.GetStatusPlayer();
+        //     }
+        // }
     }
 }
