@@ -1,16 +1,20 @@
 ﻿using Spells;
 using Players;
 using Monsters;
+using Heals;
 
 public class Program
 {
     static void Main()
     {
-        Player player = new Player("Joueur", 20, 60, "aucun");
+        Player player = new Player("Joueur", 20, 60, "aucun")
+        ;
         player.Spells.Add(new Spell("Fireball", 10, 15, "brulure"));
         player.Spells.Add(new Spell("Freeze", 5, 10, "gelure"));
         player.Spells.Add(new Spell("Poison", 15, 10, "empoisonné"));
         player.Spells.Add(new Spell("trempette", 0, 1, "aucun"));
+
+        player.Heals.Add(new Heal("soin", 15));
 
         Game(player);
     }
@@ -95,6 +99,19 @@ public class Program
                         monster.MonsterAttack(player);
                     }
                     break;
+                case "4":
+                    if (player.Heals.Any(heal => heal.Name == "soin"))
+                    {
+                        Heal SoinHeal = player.Heals.First(Heal => Heal.Name == "soin");
+                        player.CastHeal(SoinHeal);
+                        Console.WriteLine();
+                        Console.WriteLine($"vous avez utilisé {SoinHeal.Name} vos pv ont été augmenter de {SoinHeal.PvHeal}");
+                    }
+                    if (monster.IsAliveMonster())
+                    {
+                        monster.MonsterAttack(player);
+                    }
+                    break;
             }
         }
         Console.WriteLine($"État actuel du joueur: {player.GetStatusPlayer()}");
@@ -107,5 +124,6 @@ public class Program
         Console.WriteLine("1: lancer Fireball");
         Console.WriteLine("2: lancer Freeze");
         Console.WriteLine("3: lancer Poison");
+        Console.WriteLine("4: se soigner");
     }
 }

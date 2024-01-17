@@ -1,5 +1,6 @@
 using Monsters;
 using Spells;
+using Heals;
 
 namespace Players
 {
@@ -9,9 +10,10 @@ namespace Players
         public int Health { get; private set; }
         public int Mana { get; private set; }
 
-        public string? MonsterStatus {get; private set;}
+        public string? MonsterStatus { get; private set; }
 
         public List<Spell> Spells { get; } = new List<Spell>();
+        public List<Heal> Heals { get; } = new List<Heal>();
 
         public Player(string name, int health, int mana, string status)
         {
@@ -33,6 +35,11 @@ namespace Players
 
             target.ApplyDamage(spell.Damage);
             MonsterStatus = spell.Status;
+        }
+
+        public void CastHeal(Heal heal)
+        {
+            Health += heal.PvHeal;
         }
 
         public void ApplyDamage(int damage)
