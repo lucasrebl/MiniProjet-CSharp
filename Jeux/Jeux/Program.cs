@@ -8,7 +8,7 @@ public class Program
 {
     static void Main()
     {
-        Player player = new Player("Joueur", 20, 20, "aucun", 1);
+        Player player = new Player("Joueur", 200, 200, "aucun", 1);
         player.Spells.Add(new Spell("Fireball", 10, 15, "brulure"));
         player.Spells.Add(new Spell("Freeze", 5, 10, "gelure"));
         player.Spells.Add(new Spell("Poison", 15, 10, "empoisonné"));
@@ -39,13 +39,11 @@ public class Program
                     Console.WriteLine($"Vous avez reçu un bonus de PV et de Mana pour avoir tué un gobelin niveau {monsterLevel}");
                     Console.WriteLine();
 
-                    // monster.MonsterDropPotion(player, new Random());
-                    // Console.WriteLine($"le {monster.Name} a Drop une potion de mana, le {player.Name} a récupérer la potion de mana");
-                    // Console.WriteLine($"le {player.Name} possède {player.NbPotion} potion de mana");
-                    // Console.WriteLine();
 
                     player.ResetMonsterStatus();
                     monsterLevel++;
+
+                    monster.DropPotion(player);
                 }
 
                 if (player.IsAlivePlayer())
@@ -77,6 +75,7 @@ public class Program
                         {
                             Console.WriteLine();
                             Console.WriteLine($"Vous avez lancé {fireballSpell.Name} et infligé {fireballSpell.Damage} points de dégâts au {monster.Name}!");
+                            Console.WriteLine();
                         }
                     }
                     if (monster.IsAliveMonster())
@@ -93,6 +92,7 @@ public class Program
                         {
                             Console.WriteLine();
                             Console.WriteLine($"Vous avez lancé {FreezeSpell.Name} et infligé {FreezeSpell.Damage} points de dégâts au {monster.Name}!");
+                            Console.WriteLine();
                         }
                     }
                     if (monster.IsAliveMonster())
@@ -109,6 +109,7 @@ public class Program
                         {
                             Console.WriteLine();
                             Console.WriteLine($"Vous avez lancé {PoisonSpell.Name} et infligé {PoisonSpell.Damage} points de dégâts au {monster.Name}!");
+                            Console.WriteLine();
                         }
                     }
                     if (monster.IsAliveMonster())
@@ -123,6 +124,7 @@ public class Program
                         player.CastHeal(SoinHeal);
                         Console.WriteLine();
                         Console.WriteLine($"vous avez utilisé {SoinHeal.Name} vos pv ont été augmenter de {SoinHeal.PvHeal}");
+                        Console.WriteLine();
                     }
                     if (monster.IsAliveMonster())
                     {
@@ -137,6 +139,7 @@ public class Program
                         player.DecrementNbPotion(ManaPotion);
                         Console.WriteLine();
                         Console.WriteLine($"Vous avez utilisé une {ManaPotion.Name}, votre mana a augmenter de {ManaPotion.ManaRestaure}");
+                        Console.WriteLine();
                     }
                     if (monster.IsAliveMonster())
                     {

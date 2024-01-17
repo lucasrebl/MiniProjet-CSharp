@@ -58,10 +58,10 @@ namespace Players
             NbPotion -= 1;
         }
 
-        // public void IncrementNbPotion()
-        // {
-        //     NbPotion += 1;
-        // }
+        public void IncrementNbPotion()
+        {
+            NbPotion += 1;
+        }
 
         public void ApplyDamage(int damage)
         {

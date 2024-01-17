@@ -22,6 +22,8 @@ namespace Monsters
         {
             if (!IsAliveMonster() || Mana < 5)
             {
+                Console.WriteLine($"{Name} n'a plus de mana");
+                Console.WriteLine();
                 return;
             }
 
@@ -55,15 +57,16 @@ namespace Monsters
             return $"{Name}: PV = {Health}, Mana = {Mana}";
         }
 
-        // public void MonsterDropPotion(Player player, Random randomDropPotion)
-        // {
-        //     int dropChance = randomDropPotion.Next(1, 4);
+        public void DropPotion(Player player)
+        {
+            Random random = new Random();
 
-        //     if (dropChance == 1)
-        //     {
-        //         player.IncrementNbPotion();
-        //         player.GetStatusPlayer();
-        //     }
-        // }
+            // La probabilité est de 25% (1 chance sur 4)
+            if (random.Next(4) == 0)
+            {
+                player.IncrementNbPotion();
+                Console.WriteLine($"{Name} a laissé tomber une potion ! {player.Name} a maintenant {player.NbPotion} potions.");
+            }
+        }
     }
 }
