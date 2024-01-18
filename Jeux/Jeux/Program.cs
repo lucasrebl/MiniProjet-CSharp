@@ -36,7 +36,7 @@ public class Program
                     Console.WriteLine();
 
                     player.Bonus();
-                    Console.WriteLine($"Vous avez reçu un bonus de PV et de Mana pour avoir tué un gobelin niveau {monsterLevel}");
+                    Console.WriteLine($"Vous avez reçu un bonus de 10 PV et 10 de Mana pour avoir tué un gobelin niveau {monsterLevel}");
                     Console.WriteLine();
 
 
@@ -62,6 +62,7 @@ public class Program
             Action();
 
             string userAction = Console.ReadLine();
+            Console.WriteLine();
 
             switch (userAction.ToLower())
             {
@@ -73,7 +74,6 @@ public class Program
 
                         if (player.Mana >= fireballSpell.ManaCost)
                         {
-                            Console.WriteLine();
                             Console.WriteLine($"Vous avez lancé {fireballSpell.Name} et infligé {fireballSpell.Damage} points de dégâts au {monster.Name}!");
                             Console.WriteLine();
                         }
@@ -90,7 +90,6 @@ public class Program
                         player.CastSpell(FreezeSpell, monster);
                         if (player.Mana >= FreezeSpell.ManaCost)
                         {
-                            Console.WriteLine();
                             Console.WriteLine($"Vous avez lancé {FreezeSpell.Name} et infligé {FreezeSpell.Damage} points de dégâts au {monster.Name}!");
                             Console.WriteLine();
                         }
@@ -107,7 +106,6 @@ public class Program
                         player.CastSpell(PoisonSpell, monster);
                         if (player.Mana >= PoisonSpell.ManaCost)
                         {
-                            Console.WriteLine();
                             Console.WriteLine($"Vous avez lancé {PoisonSpell.Name} et infligé {PoisonSpell.Damage} points de dégâts au {monster.Name}!");
                             Console.WriteLine();
                         }
@@ -122,7 +120,6 @@ public class Program
                     {
                         Heal SoinHeal = player.Heals.First(Heal => Heal.Name == "soin");
                         player.CastHeal(SoinHeal);
-                        Console.WriteLine();
                         Console.WriteLine($"vous avez utilisé {SoinHeal.Name} vos pv ont été augmenter de {SoinHeal.PvHeal}");
                         Console.WriteLine();
                     }
@@ -134,12 +131,18 @@ public class Program
                 case "5":
                     if (player.Potions.Any(potion => potion.Name == "potion de mana"))
                     {
-                        Potion ManaPotion = player.Potions.First(potion => potion.Name == "potion de mana");
-                        player.ComsumePotion(ManaPotion);
-                        player.DecrementNbPotion(ManaPotion);
-                        Console.WriteLine();
-                        Console.WriteLine($"Vous avez utilisé une {ManaPotion.Name}, votre mana a augmenter de {ManaPotion.ManaRestaure}");
-                        Console.WriteLine();
+                        if (player.NbPotion >= 1)
+                        {
+                            Potion ManaPotion = player.Potions.First(potion => potion.Name == "potion de mana");
+                            player.ComsumePotion(ManaPotion);
+                            player.DecrementNbPotion(ManaPotion);
+                            Console.WriteLine($"Vous avez utilisé une {ManaPotion.Name}, votre mana a augmenter de {ManaPotion.ManaRestaure}");
+                            Console.WriteLine();
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Vous n'avez pas assez de potion");
+                        }
                     }
                     if (monster.IsAliveMonster())
                     {
@@ -155,10 +158,11 @@ public class Program
     public static void Action()
     {
         Console.WriteLine("Action Possible");
-        Console.WriteLine("1: lancer Fireball");
-        Console.WriteLine("2: lancer Freeze");
-        Console.WriteLine("3: lancer Poison");
-        Console.WriteLine("4: se soigner");
-        Console.WriteLine("5: potion de Mana");
+        Console.WriteLine("1: lancer Fireball, Cout en Mana = 15, dégat infligée = 10");
+        Console.WriteLine("2: lancer Freeze, Cout en Mana = 10, dégat infligée = 5");
+        Console.WriteLine("3: lancer Poison, Cout en Mana = 10, dégat infligée = 15");
+        Console.WriteLine("4: se soigner, augmente pv de 15");
+        Console.WriteLine("5: potion de Mana, augmente le mana de 15");
+        Console.WriteLine();
     }
 }
